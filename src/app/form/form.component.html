@@ -1,0 +1,96 @@
+<div class="container">
+  <div style="text-align: center">
+    <h2>User Details</h2>
+  </div>
+  <form #userDetails="ngForm">
+    <!-- FirstName -->
+    <div>
+      <label for="fname">FirstName</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        id="fname"
+        required
+        [(ngModel)]="name.firstname"
+      />
+    </div>
+    <div *ngIf="invalidFirstname" role="alert" class="alert alert-danger">
+      Firstname is Required and must have atleast 4 characters long.
+    </div>
+
+    <!-- Lastname -->
+    <div>
+      <label for="lname">LastName</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        id="lname"
+        required
+        [(ngModel)]="name.lastname"
+      />
+    </div>
+    <div *ngIf="invalidLastname" role="alert" class="alert alert-danger">
+      Lastname is Required and must have atleast 4 characters long.
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        id="email"
+        required
+        [(ngModel)]="name.email"
+        value="email@example.com"
+      />
+    </div>
+    <div *ngIf="invalidEmail" role="alert" class="alert alert-danger">
+      Email address is invalid.
+    </div>
+
+    <!-- Date-of-Birth -->
+    <div>
+      <label for="dob">DoB</label>
+      <input
+        type="date"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        max="{{maxDate | date:'yyyy-MM-dd'}}"
+        id="dob"
+        required
+        [(ngModel)]="name.dob"
+        placeholder="yyyy-mm-dd"
+      />
+    </div>
+    <div *ngIf="invalidDob" role="alert" class="alert alert-danger">
+      Date of birth field is required.
+    </div>
+    <!-- {{name.dob | date:'short'}} -->
+
+    <!-- Address -->
+    <div>
+      <label for="address">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngModelOptions]="{ standalone: true }"
+        id="address"
+        required
+        [(ngModel)]="name.address"
+      />
+    </div>
+    <div *ngIf="invalidAddress" role="alert" class="alert alert-danger">
+      Address Should contain less then 100 characters.
+    </div>
+
+    <div style="text-align: center; margin-top: 30px" class="button">
+      <button type="button" class="btn btn-secondary" (click)="showList()">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

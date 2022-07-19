@@ -1,0 +1,34 @@
+<h2 style="text-align: center;">Directive works!</h2>
+
+<h2>----- Attribute Directives----------</h2>
+<h2> ngModel Examples </h2>
+<p>Current text : {{text}}</p>
+
+<p>with NgModel</p>
+<input title="Name" [(ngModel)]="text">
+<p>{{text}}</p>
+
+<!-- <p>Without ngModel</p>
+<input type="text" [value]="text" > -->
+
+<h2>ngClass Examples</h2>
+
+<div [ngClass]="{'Pragati':true, 'Bhanudas':false, 'Gawade':true}">Pragati Gawade</div>
+
+<div [ngClass]="myclasses">ngClass Directive</div>
+
+<h2>ngStyle Examples</h2>
+
+<div [ngStyle]="myStyles">ngStyle Directive</div>
+
+<h2>----- Structural Directives----------</h2>
+
+<div *ngIf="value[0].firstName === 'Pragati'" class="value">PRAGATI</div>
+<div *ngIf="value[0].firstName === 'Sayali'" >pragati</div>
+
+
+<div *ngFor="let names of value">{{names.firstName}} {{names.lastName}}</div>
+
+
+
+<h2 appHighlight>Hello !</h2>

@@ -1,0 +1,98 @@
+<div class="special">Baisc data Binding example</div>
+
+<h1>-----  Text Interpolation ----</h1>
+<!-- <h2>Current Customer : {{ currentcustomer }}</h2> -->
+<p>Current Customer : {{ currentcustomer }}</p>
+
+<h1>---- String Interpolation ----</h1>
+
+<div *ngFor="let name of Names">
+    <p>String Interpolation : {{name.firstname }} {{name.lastname}} </p>
+
+    <button title="click save to save details" (click)="showList()">{{name.firstname}}</button>
+
+</div>
+
+
+<h1>Attribute Binding</h1>
+
+<button title="Save">Save</button><br>
+<button disabled>Disabled button</button><br>
+<button value="Submit">Submit</button>
+<!-- <button type="button" [disabled]="isUnchanged">Save</button> -->
+
+<h1>Class & Style Binding</h1>
+
+<!-- <h2 [class] ="UserClass()">User Class Binding</h2>
+ 
+
+<h3>heading's class is : "{{UserClass()}}"</h3> -->
+
+
+
+<p [style.color] = "testStyleBinding ? 'red': 'green'">Style Binding </p>
+<p [style.font-style] = "testStyleBinding ? 'italic' : 'normal'">Style Binding </p>
+
+
+<h1>Event Binding</h1>
+
+<button title="Display Names" (click)="showList()">{{shownames}}</button><br>
+<br>
+
+<button (click)="ClickMe()">ClickEvent</button>
+<p>You have Clicked : {{clickcount}}</p>
+
+
+<!-- <button (hover)="">Save</button> -->
+
+
+<h1>Property Binding</h1>
+
+<img [src]="src" alt="Image" style="width: 100px">
+<br>
+
+<!-- <button [disabled]="binding ? 'italic': 'normal'">Property Binding</button> -->
+<br>
+
+<!-- <img [src]="imageUrl" alt="Image"> -->
+
+<h1>Two Way Data Binding</h1>
+
+<input type="text" title="Full Name" [(ngModel)]="textMessage">
+<br>
+
+<p>{{ textMessage }}</p>
+
+<h1>Pipes</h1>
+
+<p>{{textPipes | lowercase}}</p>
+<p>{{ textPipes | uppercase}}</p>
+
+
+ <!-- Date Format -->
+
+<p>Birthdate Format: {{ birthdate | date}}</p>
+<p>Birthdate Format: {{ birthdate | date:'shortDate'}}</p>
+<p>Birthdate Uppercase Format : {{ birthdate | date:'fullDate' | uppercase}}</p>
+<!-- <p>Number Decimal Format : {{ numberdecimal | decimal}}</p> -->
+
+<!-- Currency Format -->
+
+<p>{{amount | currency:'EUR'}}</p>
+<p>Currency Number Value : {{a | currency}}</p>
+<p>CAD Format currency : {{ a | currency: 'CAD'}}</p>
+
+
+
+
+
+<!-- <button (click)="showList()">Save</button>
+
+<div *ngFor="let name of Names">
+    <h2>Text Interpolation : {{name.firstname.split('a') }} {{name.lastname.split('a') }} {{name.age}}   </h2>
+
+    <button title="click save to save details" [disabled]="name.age > 25" (click)="showList()">{{name.lastname}}</button>
+
+</div>
+
+<h2>{{  currentcustomer }}</h2> -->
